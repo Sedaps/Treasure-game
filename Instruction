@@ -1,0 +1,101 @@
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    
+srand(static_cast<unsigned int>(time(NULL)));
+    
+
+string userChoice;
+int treasureStat = rand() % 8 + 1;
+string userName;
+string computerChoice;
+
+
+if (treasureStat == 1) { 
+    computerChoice = "nothing";
+} else if (treasureStat == 2) {
+    computerChoice = "bomb";
+} else if (treasureStat == 3) {
+    computerChoice = "treasure";
+}else if (treasureStat == 4) {
+    computerChoice = "treasuree";
+}else if (treasureStat == 5) {
+    computerChoice = "nothingg";
+}else if (treasureStat == 6) {
+    computerChoice = "nothinggg";
+}else if (treasureStat == 7) {
+    computerChoice = "nothingggg";
+}else if (treasureStat == 8) {
+    computerChoice = "nothinggggg";
+}
+
+
+std::cout << "Welcome to metal detector treasure hunt! Name your Character Below" << endl;
+getline(cin, userName);
+std::cout << "Ok " << userName << " Lets Get Started!" << endl;
+std::cout << "Controls:" << endl;
+std::cout << "walk forward" << endl;
+std::cout << "walk to the left" << endl;
+std::cout << "walk to the right" << endl;
+std::cout << "dig" << endl;
+getline(cin, userChoice);
+
+for (int i=0;i<userChoice.length();i++){
+    userChoice[i]=tolower(userChoice[i]);
+}
+
+while (userChoice != "dig" && userChoice != "keep going" && userChoice != "walk to right"  && userChoice != "walk to left"  && userChoice != "walk forward") {
+    std::cout << "Sorry! Didn't get that. Please enter again." << endl;
+    getline(cin, userChoice);
+    for (int i=0;i<userChoice.length();i++){
+        userChoice[i]=tolower(userChoice[i]);
+    }
+}
+std::cout << "Press enter to continue..." << endl;
+std::cin.ignore();
+label_Choice:
+if(userChoice == "walk forward") {
+    std::cout << "You walked forward!" << endl;
+}
+getline(cin, userChoice);
+if(computerChoice == "nothing" && userChoice == "dig") {
+    std::cout << "You Dug into the ground and found nothing!" << endl;
+    std::cout << "What will your character do next?" << endl;
+}else if(computerChoice == "bomb" && userChoice == "dig") {
+    std::cout << "You Dug into the ground and found a Bomb, It exploded and you died" << endl;
+    std::cout << "GAME OVER" << endl; 
+}else if(computerChoice == "treasure" && userChoice == "dig") {
+    std::cout << "You Dug into the ground and found Treasure!" << endl;
+    std::cout << "What will your character do next?" << endl;
+}else if(computerChoice == "treasuree" && userChoice == "dig") {
+    std::cout << "You Dug into the ground and found Treasure!" << endl;
+    std::cout << "What will your character do next?" << endl;
+}if(computerChoice == "nothingg" && userChoice == "dig") {
+    std::cout << "You Dug into the ground and found !" << endl;
+    std::cout << "What will your character do next?" << endl;
+}if(computerChoice == "nothinggg" && userChoice == "dig") {
+    std::cout << "You Dug into the ground and found Treasure!" << endl;
+    std::cout << "What will your character do next?" << endl;
+}if(computerChoice == "nothingggg" && userChoice == "dig") {
+    std::cout << "You Dug into the ground and found Treasure!" << endl;
+    std::cout << "What will your character do next?" << endl;
+}if(computerChoice == "nothinggggg" && userChoice == "dig") {
+    std::cout << "You Dug into the ground and found Treasure!" << endl;
+    std::cout << "What will your character do next?" << endl;
+}
+  {
+   goto label_Choice;   
+  }
+    
+
+
+
+
+
+    return 0;
+}
